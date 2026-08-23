@@ -300,3 +300,74 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
 @media (max-width: 940px) {
   .duo { grid-template-columns: 1fr; }
 }
+
+/* ---------- advertentiepakketten (hoofddienst) ---------- */
+.pakketten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; align-items: start; }
+.pakket {
+  background: var(--deep-2); border: 1px solid var(--line-deep);
+  padding: 28px 24px 26px; position: relative; display: flex; flex-direction: column;
+}
+.pakket.uitgelicht { border-color: var(--amber-lit); border-width: 2px; padding: 27px 23px 25px; }
+.pak-lint {
+  position: absolute; top: -11px; left: 22px; background: var(--amber-lit); color: #16202a;
+  font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; padding: 4px 10px;
+}
+.pak-code {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--amber-lit); font-weight: 500; margin-bottom: 8px;
+}
+.pakket h3 { color: #fff; font-size: 18px; margin: 0 0 16px; line-height: 1.3; }
+.pak-prijs { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+.pak-bedrag {
+  font-family: var(--serif); font-weight: 800; font-size: 34px; color: #fff;
+  font-variant-numeric: tabular-nums; letter-spacing: -.03em; line-height: 1;
+}
+.pak-per { font-size: 13.5px; color: #93a3aa; }
+.pak-budget {
+  font-size: 13px; color: #c9b491; background: rgba(240,166,58,.09);
+  border-left: 2px solid rgba(240,166,58,.5); padding: 9px 11px; margin: 0 0 16px; line-height: 1.5;
+}
+.pak-budget strong { color: var(--amber-lit); }
+.pak-voor { font-size: 14.5px; color: #9dadb4; margin: 0 0 16px; }
+.pak-lijst { list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid #2c3b43; }
+.pak-lijst li { font-size: 14px; color: #c3ced3; padding-left: 16px; margin-bottom: 9px; position: relative; line-height: 1.5; }
+.pak-lijst li::before { content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 1px; background: var(--amber-lit); }
+
+.rekensom {
+  background: var(--deep-2); border-left: 3px solid var(--amber-lit);
+  padding: 22px 26px; margin-bottom: 26px;
+}
+.rekensom h3 {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--faint); font-weight: 500; margin: 0 0 12px;
+}
+.rekensom p { color: #a4b3ba; font-size: 15.5px; max-width: 76ch; }
+.rekensom p:last-child { margin-bottom: 0; }
+.rekensom strong { color: #fff; }
+
+.afspraken-blok { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 26px; }
+.blok-kop {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--faint); font-weight: 500; margin: 0 0 14px;
+}
+dl.afspraken { margin: 0; }
+dl.afspraken dt {
+  color: #fff; font-weight: 600; font-size: 14.5px; padding-top: 12px;
+  border-top: 1px solid var(--line-deep);
+}
+dl.afspraken dt:first-child { border-top: 0; padding-top: 0; }
+dl.afspraken dd { margin: 4px 0 14px; color: #9dadb4; font-size: 14.5px; line-height: 1.55; }
+ul.niet-in { list-style: none; margin: 0 0 16px; padding: 0; }
+ul.niet-in li { position: relative; padding-left: 20px; margin-bottom: 8px; color: #93a3aa; font-size: 14.5px; }
+ul.niet-in li::before { content: "\00d7"; position: absolute; left: 2px; color: var(--amber-lit); }
+.eerlijk { font-size: 14.5px; color: #a4b3ba; margin: 0; max-width: 56ch; }
+.meer-diensten {
+  border-top: 1px solid var(--line-deep); padding-top: 22px; margin: 0;
+  color: #93a3aa; font-size: 15px; max-width: 82ch;
+}
+
+@media (max-width: 940px) {
+  .pakketten, .afspraken-blok { grid-template-columns: 1fr; }
+  .pakketten { gap: 26px; }
+}
