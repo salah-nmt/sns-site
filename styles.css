@@ -250,45 +250,16 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
   .strip .cel { border-right: 0; }
 }
 
-/* ---------- twee operators ---------- */
-.duo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; margin-bottom: 30px; }
-.operator {
-  background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--amber);
-  padding: 30px 28px 26px; display: flex; flex-direction: column;
-  transition: transform .18s ease, box-shadow .18s ease;
+/* ---------- werkwijze ---------- */
+.werkwijze { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); margin-bottom: 30px; }
+.werkwijze article { background: var(--card); padding: 30px 28px 28px; }
+.ww-nr {
+  font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: .16em;
+  color: var(--amber); display: block; margin-bottom: 14px;
 }
-.operator:hover { transform: translateY(-3px); box-shadow: 0 12px 34px rgba(16,22,25,.10); }
-.op-kop { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 18px; }
-.op-nr {
-  font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .1em;
-  color: var(--amber); background: var(--paper); border: 1px solid var(--line);
-  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; flex: none;
-}
-.operator h3 { font-size: 22px; margin: 0 0 4px; letter-spacing: -.02em; }
-.op-rol {
-  font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase;
-  color: var(--muted); margin: 0;
-}
-.op-tekst { color: var(--muted); font-size: 15.5px; margin: 0 0 14px; }
-.op-lijst { list-style: none; padding: 0; margin: 6px 0 20px; }
-.op-lijst li {
-  position: relative; padding-left: 22px; margin-bottom: 9px;
-  font-size: 14.5px; color: var(--ink);
-}
-.op-lijst li::before {
-  content: ""; position: absolute; left: 2px; top: 8px;
-  width: 8px; height: 2px; background: var(--amber);
-}
-.op-voet {
-  margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line);
-  display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 14px;
-}
-.op-voet a { color: var(--amber); text-decoration: none; border-bottom: 1px solid rgba(168,80,11,.28); }
-.op-voet a:hover { border-color: var(--amber); }
-.op-jaren {
-  font-family: var(--mono); font-size: 12px; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--faint);
-}
+.werkwijze h3 { font-size: 20px; margin: 0 0 10px; letter-spacing: -.02em; }
+.werkwijze p { color: var(--muted); font-size: 15.5px; margin: 0; max-width: 46ch; }
 .samen {
   border-left: 3px solid var(--cool); background: var(--card);
   border-top: 1px solid var(--line); border-right: 1px solid var(--line);
@@ -298,7 +269,7 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
 .samen p:last-child { margin-bottom: 0; }
 
 @media (max-width: 940px) {
-  .duo { grid-template-columns: 1fr; }
+  .werkwijze { grid-template-columns: 1fr; }
 }
 
 /* ---------- advertentiepakketten (hoofddienst) ---------- */
@@ -307,32 +278,52 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
   background: var(--deep-2); border: 1px solid var(--line-deep);
   padding: 28px 24px 26px; position: relative; display: flex; flex-direction: column;
 }
-.pakket.uitgelicht { border-color: var(--amber-lit); border-width: 2px; padding: 27px 23px 25px; }
+.pakket.uitgelicht { border-color: var(--amber-lit); border-width: 2px; padding: 31px 27px 29px; }
 .pak-lint {
-  position: absolute; top: -11px; left: 22px; background: var(--amber-lit); color: #16202a;
-  font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: .12em;
-  text-transform: uppercase; padding: 4px 10px;
+  position: absolute; top: -12px; left: 26px; background: var(--amber-lit); color: #16202a;
+  font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .16em;
+  text-transform: uppercase; padding: 5px 12px;
 }
+/* pakketkop: nummer in mono als etiket, naam in de displayletter als merk */
 .pak-code {
-  font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase;
-  color: var(--amber-lit); font-weight: 500; margin-bottom: 8px;
+  display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px;
+  border-bottom: 1px solid #2c3b43; padding-bottom: 14px;
 }
-.pakket h3 { color: #fff; font-size: 18px; margin: 0 0 16px; line-height: 1.3; }
-.pak-prijs { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; }
+.pak-nr {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+  color: var(--faint); font-weight: 500;
+}
+.pak-naam {
+  font-family: var(--serif); font-weight: 900; font-size: 20px; letter-spacing: -.02em;
+  color: var(--amber-lit); text-transform: uppercase; line-height: 1; margin-left: auto;
+}
+.pakket h3 {
+  color: #fff; font-size: 21px; margin: 18px 0 20px; line-height: 1.22;
+  letter-spacing: -.025em; font-weight: 700;
+}
+.pak-prijs { display: flex; align-items: baseline; gap: 3px; margin-bottom: 16px; }
+.pak-val {
+  font-family: var(--serif); font-weight: 700; font-size: 24px; color: var(--amber-lit);
+  align-self: flex-start; margin-top: 6px; letter-spacing: 0;
+}
 .pak-bedrag {
-  font-family: var(--serif); font-weight: 800; font-size: 34px; color: #fff;
-  font-variant-numeric: tabular-nums; letter-spacing: -.03em; line-height: 1;
+  font-family: var(--serif); font-weight: 900; font-size: clamp(42px, 4.6vw, 52px); color: #fff;
+  font-variant-numeric: tabular-nums; letter-spacing: -.045em; line-height: .9;
 }
-.pak-per { font-size: 13.5px; color: #93a3aa; }
+.pak-per {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: #93a3aa; margin-left: 10px; white-space: nowrap;
+}
 .pak-budget {
   font-size: 13px; color: #c9b491; background: rgba(240,166,58,.09);
-  border-left: 2px solid rgba(240,166,58,.5); padding: 9px 11px; margin: 0 0 16px; line-height: 1.5;
+  border-left: 2px solid rgba(240,166,58,.5); padding: 10px 12px; margin: 0 0 18px; line-height: 1.55;
 }
-.pak-budget strong { color: var(--amber-lit); }
-.pak-voor { font-size: 14.5px; color: #9dadb4; margin: 0 0 16px; }
-.pak-lijst { list-style: none; margin: auto 0 0; padding: 16px 0 0; border-top: 1px solid #2c3b43; }
-.pak-lijst li { font-size: 14px; color: #c3ced3; padding-left: 16px; margin-bottom: 9px; position: relative; line-height: 1.5; }
-.pak-lijst li::before { content: ""; position: absolute; left: 0; top: 10px; width: 7px; height: 1px; background: var(--amber-lit); }
+.pak-budget strong { color: var(--amber-lit); font-weight: 600; }
+.pak-voor { font-size: 14.5px; color: #9dadb4; margin: 0 0 20px; line-height: 1.6; }
+.pak-lijst { list-style: none; margin: auto 0 0; padding: 18px 0 0; border-top: 1px solid #2c3b43; }
+.pak-lijst li { font-size: 14.5px; color: #c3ced3; padding-left: 18px; margin-bottom: 11px; position: relative; line-height: 1.55; }
+.pak-lijst li:last-child { margin-bottom: 0; }
+.pak-lijst li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 1px; background: var(--amber-lit); }
 
 .rekensom {
   background: var(--deep-2); border-left: 3px solid var(--amber-lit);
@@ -370,4 +361,65 @@ ul.niet-in li::before { content: "\00d7"; position: absolute; left: 2px; color: 
 @media (max-width: 940px) {
   .pakketten, .afspraken-blok { grid-template-columns: 1fr; }
   .pakketten { gap: 26px; }
+}
+
+/* ---------- slogan-band ---------- */
+/* De belofte staat een keer groot en alleen op het scherm, los van elke sectie.
+   Dat is de enige plek op de site waar niets anders om aandacht vraagt. */
+.slogan { background: var(--deep-2); color: #fff; padding: 0; position: relative; overflow: hidden; }
+.slogan::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 90% at 50% 50%, #000 0%, transparent 78%);
+}
+.slogan .wrap { position: relative; z-index: 1; padding-top: 58px; padding-bottom: 58px; text-align: center; }
+.slogan-boven {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .26em; text-transform: uppercase;
+  color: var(--faint); margin: 0 0 20px;
+}
+.slogan-tekst {
+  font-family: var(--serif); font-weight: 900; font-size: clamp(26px, 4.9vw, 56px);
+  line-height: 1.06; letter-spacing: -.035em; color: #fff; margin: 0 auto;
+  max-width: 20ch; text-wrap: balance;
+}
+.slogan-tekst em { font-style: normal; color: var(--amber-lit); }
+.slogan-onder {
+  font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: #7f8f96;
+  margin: 22px 0 0;
+}
+
+/* ---------- sectorenraster ---------- */
+.sectoren { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); }
+.sectoren article { background: var(--card); padding: 24px 20px 26px; transition: background .16s ease; }
+.sectoren article:hover { background: #f6f9fa; }
+.s-nr { font-family: var(--mono); font-size: 10.5px; letter-spacing: .18em; color: var(--faint);
+  display: block; margin-bottom: 13px; }
+.sectoren article:hover .s-nr { color: var(--amber); }
+.sectoren h3 { font-size: 16px; margin: 0 0 9px; line-height: 1.25; }
+.sectoren p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.55; }
+.sector-voet {
+  margin: 26px 0 0; padding-left: 20px; border-left: 3px solid var(--cool);
+  color: var(--muted); font-size: 15px; max-width: 84ch;
+}
+
+/* ---------- labels bij werk ---------- */
+.case-sector {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--amber); margin: 0 0 16px;
+}
+.w-sector {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--faint); display: block; margin-bottom: 9px;
+}
+
+@media (max-width: 940px) {
+  .sectoren { grid-template-columns: repeat(2, 1fr); }
+  .werk { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .sectoren { grid-template-columns: 1fr; }
+  .slogan .wrap { padding-top: 42px; padding-bottom: 42px; }
 }
