@@ -26,6 +26,16 @@
     border-top: 1px solid var(--line); }
   .terug { font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em;
     text-transform: uppercase; color: var(--amber); text-decoration: none; }
+  .bedrijfsgegevens { display: grid; grid-template-columns: auto 1fr; gap: 8px 26px;
+    margin: 22px 0 0; padding: 20px 24px; background: var(--card);
+    border: 1px solid var(--line); border-left: 3px solid var(--cool); font-size: 14.5px; }
+  .bedrijfsgegevens dt { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--faint); padding-top: 3px; white-space: nowrap; }
+  .bedrijfsgegevens dd { margin: 0; color: var(--ink); }
+  @media (max-width: 620px) {
+    .bedrijfsgegevens { grid-template-columns: 1fr; gap: 2px 0; }
+    .bedrijfsgegevens dd { margin-bottom: 12px; }
+  }
 </style>
 </head>
 <body>
@@ -53,11 +63,20 @@
     </div>
 
     <div class="juridisch">
-      <h2>Wie wij zijn</h2>
+      <h2 id="bedrijfsgegevens">Wie wij zijn</h2>
       <p>S&amp;S Marketing bouwt en beheert commerci&euml;le systemen voor bedrijven in Belgi&euml; en
         Nederland. U bereikt ons op <a href="mailto:salah@s-smarketing.com">salah@s-smarketing.com</a>
         of <a href="tel:+32472693117">+32 472 69 31 17</a>. Voor alles wat met uw gegevens te maken
         heeft, gebruikt u datzelfde adres.</p>
+
+      <dl class="bedrijfsgegevens">
+        <dt>Handelsnaam</dt><dd>S&amp;S Marketing</dd>
+        <dt>Juridische entiteit</dt><dd>S&amp;S Ecom Ltd</dd>
+        <dt>Registratienummer</dt><dd>17319619, Engeland en Wales</dd>
+        <dt>Maatschappelijke zetel</dt><dd>71-75 Shelton Street, Covent Garden, Londen WC2H 9JQ, Verenigd Koninkrijk</dd>
+        <dt>Werkgebied</dt><dd>Belgi&euml; en Nederland, vanuit Antwerpen en Woensdrecht</dd>
+        <dt>Verantwoordelijke</dt><dd>Salaheddine Azouzi</dd>
+      </dl>
 
       <h2>Deze website</h2>
       <p>De site plaatst <strong>geen cookies</strong>. Er draait <strong>geen analysesoftware</strong>
@@ -111,6 +130,11 @@
   <div class="wrap">
     <div>S&amp;S Marketing &middot; Antwerpen (BE) en Woensdrecht (NL) &middot; werkzaam in Belgi&euml; en Nederland</div>
     <div class="mono"><a href="mailto:salah@s-smarketing.com">salah@s-smarketing.com</a> &nbsp;&middot;&nbsp; <a href="tel:+32472693117">+32 472 69 31 17</a></div>
+  </div>
+  <div class="wrap">
+    <p class="voet-juridisch">S&amp;S Marketing is een handelsnaam van S&amp;S Ecom Ltd,
+      ingeschreven in Engeland en Wales onder nummer 17319619.
+      <a href="/privacy/#bedrijfsgegevens">Bedrijfsgegevens en privacy</a></p>
   </div>
 </footer>
 
