@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /voorstel/
 
 Sitemap: https://s-smarketing.com/sitemap.xml

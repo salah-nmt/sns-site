@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Voorstel samenwerking S&amp;S Marketing">
+<meta name="author" content="Salaheddine Azouzi">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<title>Voorstel Tarik 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --paper:#F6F4EF;
+  --sheet:#FFFFFF;
+  --ink:#1B1A17;
+  --ink-2:#46433C;
+  --muted:#79746A;
+  --rule:#DFDACF;
+  --rule-2:#C3BCAD;
+  --accent:#27506B;
+  --accent-soft:#E4EBF0;
+  --signal:#54682F;
+  --signal-soft:#E9EDDD;
+  --off:#8A5A32;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1A1815;
+    --sheet:#232019;
+    --ink:#F0ECE4;
+    --ink-2:#CFC9BE;
+    --muted:#948D80;
+    --rule:#38332A;
+    --rule-2:#4E4739;
+    --accent:#86B6D2;
+    --accent-soft:#1C2C36;
+    --signal:#A9BE79;
+    --signal-soft:#23291A;
+    --off:#C89263;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1A1815;
+  --sheet:#232019;
+  --ink:#F0ECE4;
+  --ink-2:#CFC9BE;
+  --muted:#948D80;
+  --rule:#38332A;
+  --rule-2:#4E4739;
+  --accent:#86B6D2;
+  --accent-soft:#1C2C36;
+  --signal:#A9BE79;
+  --signal-soft:#23291A;
+  --off:#C89263;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:860px;margin:0 auto;padding:0 26px 100px}
+
+.head{
+  display:flex;flex-direction:column;gap:26px;
+  padding:56px 0 24px;border-bottom:2px solid var(--ink);
+}
+.kicker{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--accent);font-weight:500;
+}
+h1{
+  font-family:"Zilla Slab",Georgia,serif;
+  font-weight:700;font-size:clamp(30px,5.4vw,44px);
+  line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance;
+}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px 28px}
+.meta div{display:flex;flex-direction:column;gap:3px}
+.meta dt,.lbl{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;
+}
+.meta dd{margin:0;font-size:16px;line-height:1.35}
+.meta dd span{display:block;color:var(--muted);font-size:14px}
+
+section{margin:56px 0 0}
+h2{
+  font-family:"Zilla Slab",Georgia,serif;
+  font-weight:600;font-size:24px;letter-spacing:-.01em;
+  margin:0 0 6px;padding-bottom:9px;border-bottom:1px solid var(--rule-2);
+  text-wrap:balance;
+}
+h3{
+  font-family:"Zilla Slab",Georgia,serif;
+  font-weight:600;font-size:19px;margin:34px 0 10px;letter-spacing:-.005em;
+}
+p{margin:0 0 15px;max-width:68ch}
+.intro{font-size:18px;color:var(--ink-2);max-width:64ch}
+ul{margin:0 0 15px;padding-left:20px;max-width:68ch}
+li{margin:0 0 7px}
+li::marker{color:var(--accent)}
+strong{font-weight:600}
+.note{font-size:15px;color:var(--muted);max-width:66ch}
+
+.tw{overflow-x:auto;margin:18px 0 10px;border:1px solid var(--rule);background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:15.5px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;background:var(--paper);
+}
+td.n,th.n{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+td.n{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:14.5px}
+td .svc{font-weight:600;display:block;margin-bottom:3px}
+td .det{color:var(--muted);font-size:14.5px;line-height:1.45}
+tbody tr:last-child td{border-bottom:none}
+tr.sub td{background:var(--accent-soft);font-weight:600;border-top:1px solid var(--rule-2)}
+tr.sub td.n{font-weight:700}
+td.no{color:var(--off);font-family:"JetBrains Mono",ui-monospace,monospace;font-size:13px}
+td.mine,th.mine{color:var(--signal);font-weight:700;background:var(--signal-soft)}
+td.strike{color:var(--muted);text-decoration:line-through}
+
+.packs{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:16px;margin:22px 0 10px}
+.pack{
+  background:var(--sheet);border:1px solid var(--rule);
+  border-top:3px solid var(--rule-2);padding:20px;
+  display:flex;flex-direction:column;gap:11px;
+}
+.pack.pick{border-top-color:var(--signal);background:var(--signal-soft);border-color:var(--signal)}
+.pack .top{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.pack h4{font-family:"Zilla Slab",Georgia,serif;font-weight:600;font-size:18px;margin:0}
+.pill{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;font-weight:500;
+  color:var(--signal);border:1px solid var(--signal);padding:2px 7px;white-space:nowrap;
+}
+.price{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:27px;font-weight:700;letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;line-height:1;
+}
+.price small{display:block;font-size:12px;font-weight:400;color:var(--muted);margin-top:6px;letter-spacing:0;line-height:1.45}
+.rate{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12px;font-weight:500;letter-spacing:.04em;
+  color:var(--muted);border-top:1px solid var(--rule);padding-top:9px;
+}
+.pack.pick .rate{color:var(--signal);border-top-color:var(--signal)}
+.pack ul{margin:0;padding-left:17px;font-size:14.5px}
+.pack li{margin:0 0 5px;color:var(--ink-2)}
+.pack li.gone{color:var(--off)}
+
+.box{border-left:3px solid var(--accent);background:var(--sheet);padding:16px 20px;margin:22px 0}
+.box p:last-child{margin-bottom:0}
+.box h4{font-family:"Zilla Slab",Georgia,serif;font-weight:600;font-size:17px;margin:0 0 7px;color:var(--accent)}
+
+.terms{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0;
+}
+.term{background:var(--sheet);padding:16px 18px}
+.term p{margin:5px 0 0;font-size:15px;color:var(--ink-2);max-width:none}
+
+.sign{margin-top:56px;padding-top:24px;border-top:2px solid var(--ink)}
+a{color:var(--accent);text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<style>
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  .sheet{max-width:none;padding:0}
+  .head{padding-top:0}
+  section{margin:22pt 0 0;break-inside:auto}
+  h2{break-after:avoid}
+  table{break-inside:auto;font-size:9.5pt}
+  tr{break-inside:avoid}
+  .pack,.box,.term{break-inside:avoid}
+  .tw{overflow:visible;border-color:#bbb}
+  a{color:#000;text-decoration:none}
+  .packs{grid-template-columns:repeat(3,1fr)}
+  @page{margin:14mm}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+<header class="head">
+  <div>
+    <div class="kicker">Voorstel samenwerking</div>
+    <h1>Diensten, uren en tarieven vanaf september 2026</h1>
+  </div>
+  <dl class="meta">
+    <div><dt class="lbl">Van</dt><dd>Salaheddine Azouzi<span>S&amp;S Marketing</span></dd></div>
+    <div><dt class="lbl">Voor</dt><dd>Tarik<span>NMT Group en de sanitairwebshop</span></dd></div>
+    <div><dt class="lbl">Datum</dt><dd>1 september 2026<span>Geldig tot 15 september</span></dd></div>
+  </dl>
+</header>
+
+<section>
+  <h2>Waarom dit voorstel</h2>
+  <p class="intro">We werken al een tijd samen zonder dat ergens staat wat ik precies doe, hoeveel tijd dat kost en wat het waard is.</p>
+  <p>Dat werkte toen het klein was. Er lopen nu advertenties voor twee bedrijven, een maatwerkwebsite met online betaling en agendaboekingen, een offerteflow met geautomatiseerde opvolging, en binnenkort een webshop. Als daar iets stukgaat, komen er geen aanvragen binnen en loopt er geen bestelling door.</p>
+  <p>Zonder afspraak kan jij niet budgetteren en kan ik niet plannen. Hieronder staat wat ik doe, hoeveel uur het kost en wat het per dienst waard is, zodat je kan kiezen waar je geld naartoe gaat.</p>
+</section>
+
+<section>
+  <h2>1. NMT Group</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Dienst</th><th class="n">Uren per maand</th><th class="n">Prijs per maand</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="svc">Marketing en advertenties</span>
+          <span class="det">Elk kwartaal een nieuwe reeks advertenties: creatives maken, teksten schrijven, campagnes opzetten en live zetten. Daartussen budgetten bewaken en bijsturen als een campagne wegzakt of een advertentie afgekeurd wordt.</span></td>
+          <td class="n">11</td><td class="n">€ 800</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Onderhoud en ondersteuning website</span>
+          <span class="det">De website draaiend houden: betaalflow, agendaboekingen voor technische bezoeken, de koppeling met Teamleader en de geautomatiseerde opvolgmails. Storingen oplossen, updates uitvoeren, en bereikbaar zijn als er iets stukgaat.</span></td>
+          <td class="n">10</td><td class="n">€ 750</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Funnels verbeteren en testen</span>
+          <span class="det">Doorlopend werk aan de pagina's waar aanvragen binnenkomen: teksten en opbouw aanpassen, varianten tegen elkaar testen, de offerte- en opvolgmails bijstellen, en meten wat er van bezoeker naar afspraak gaat.</span></td>
+          <td class="n">15</td><td class="n">€ 1.125</td>
+        </tr>
+        <tr class="sub"><td>Subtotaal NMT Group</td><td class="n">36</td><td class="n">€ 2.675</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>2. Sanitairwebshop</h2>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Dienst</th><th class="n">Uren per maand</th><th class="n">Prijs per maand</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="svc">Beheer en onderhoud Shopify</span>
+          <span class="det">Producten, prijzen en voorraad bijhouden, aanpassingen aan het thema en de productpagina's, betalingen en verzending werkend houden, en storingen oplossen.</span></td>
+          <td class="n">15</td><td class="n">€ 1.125</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Marketing en advertenties</span>
+          <span class="det">Wekelijks nieuwe producten en invalshoeken testen, creatives maken en vernieuwen, budgetten dagelijks bewaken, verliesgevende advertenties stoppen en winnaars opschalen. Elke maand een overzicht op omzet en advertentiekost.</span></td>
+          <td class="n">20</td><td class="n">€ 1.500</td>
+        </tr>
+        <tr class="sub"><td>Subtotaal sanitairwebshop</td><td class="n">35</td><td class="n">€ 2.625</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box">
+    <h4>Waarom de webshop bijna dubbel zo veel kost als NMT</h4>
+    <p>Het uurtarief is voor allebei hetzelfde, € 75. Het verschil zit in hoe vaak er gewerkt moet worden.</p>
+    <p><strong>NMT verkoopt een vaste dienst aan mensen die al weten wat ze zoeken.</strong> Wie een kapotte ketel heeft, zoekt naar een ketel. Het aanbod verandert niet, de doelgroep verandert niet. Vier keer per jaar een nieuwe reeks advertenties is genoeg, plus een oog op de budgetten. Dat is elf uur per maand.</p>
+    <p><strong>Een webshop werkt omgekeerd.</strong> Je weet vooraf niet welk product verkoopt. Een sanitaircatalogus heeft honderden artikelen en je kan er maar een handvol tegelijk adverteren. De enige manier om te weten welk product werkt, is testen: meerdere producten, meerdere invalshoeken, meerdere beelden, week na week. De meeste tests verliezen. Dat hoort bij het werk. De paar die winnen, schaal je op.</p>
+    <p>Dat betekent elke week nieuwe creatives, elke week budgetbeslissingen, en elke week stoppen wat niet werkt. Twintig uur per maand tegenover elf.</p>
+  </div>
+</section>
+
+<section>
+  <h2>3. Drie pakketten</h2>
+  <p>Alles los afnemen is <strong>71 uur voor € 5.300 per maand</strong>. Bij een vast aantal uren kan ik plannen, en daar staat een lagere prijs tegenover. Hoe meer uren vastliggen, hoe lager het tarief.</p>
+
+  <div class="packs">
+
+    <div class="pack pick">
+      <div class="top"><h4>A. Volledig</h4><span class="pill">Mijn voorstel</span></div>
+      <div class="price">€ 4.200<small>per maand, tot 71 uur</small></div>
+      <div class="rate">€ 59 per uur &middot; € 1.100 onder het losse tarief</div>
+      <ul>
+        <li>Advertenties voor NMT en de webshop</li>
+        <li>Wekelijks producten testen in de webshop</li>
+        <li>Website en webshop draaiend, storingen opgelost</li>
+        <li>Funnels doorlopend verbeteren en testen</li>
+        <li>Maandrapport op omzet en advertentiekost</li>
+      </ul>
+    </div>
+
+    <div class="pack">
+      <div class="top"><h4>B. Ingeperkt</h4></div>
+      <div class="price">€ 3.400<small>per maand, tot 45 uur</small></div>
+      <div class="rate">€ 76 per uur</div>
+      <ul>
+        <li>Advertenties voor NMT en de webshop</li>
+        <li>Website en webshop draaiend, storingen opgelost</li>
+        <li class="gone">Webshoptests nog maar één keer per maand</li>
+        <li class="gone">Funnels alleen herstellen, niet verbeteren</li>
+      </ul>
+    </div>
+
+    <div class="pack">
+      <div class="top"><h4>C. Basis</h4></div>
+      <div class="price">€ 2.300<small>per maand, tot 30 uur</small></div>
+      <div class="rate">€ 77 per uur</div>
+      <ul>
+        <li>Website en webshop blijven draaien</li>
+        <li>Storingen worden opgelost</li>
+        <li class="gone">Geen nieuwe producten getest</li>
+        <li class="gone">Geen nieuwe advertenties buiten het kwartaal</li>
+        <li class="gone">Geen funnelwerk</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <h3>Wat je per pakket krijgt</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Dienst</th><th class="n">A</th><th class="n">B</th><th class="n">C</th></tr></thead>
+      <tbody>
+        <tr><td><span class="svc">NMT advertenties</span><span class="det">Kwartaalreeks plus bewaking</span></td><td class="n">11 u</td><td class="n">11 u</td><td class="no">6 u, geen bewaking</td></tr>
+        <tr><td><span class="svc">NMT website onderhoud</span><span class="det">Betalingen, boekingen, koppelingen</span></td><td class="n">10 u</td><td class="n">10 u</td><td class="n">8 u</td></tr>
+        <tr><td><span class="svc">NMT funnels verbeteren</span><span class="det">Testen en bijstellen</span></td><td class="n">15 u</td><td class="no">4 u, alleen herstel</td><td class="no">niet inbegrepen</td></tr>
+        <tr><td><span class="svc">Shopify beheer</span><span class="det">Producten, thema, betalingen</span></td><td class="n">15 u</td><td class="n">10 u</td><td class="n">8 u</td></tr>
+        <tr><td><span class="svc">Webshop advertenties</span><span class="det">Producten testen en opschalen</span></td><td class="n">20 u</td><td class="no">10 u, maandelijks</td><td class="no">8 u, lopende campagnes</td></tr>
+        <tr class="sub"><td>Totaal per maand</td><td class="n">71 u</td><td class="n">45 u</td><td class="n">30 u</td></tr>
+        <tr class="sub"><td>Prijs per maand</td><td class="n">€ 4.200</td><td class="n">€ 3.400</td><td class="n">€ 2.300</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="note">Het verschil tussen A en B is € 800 per maand voor 26 extra uren. Dat komt neer op € 31 per uur voor die extra tijd, tegenover € 76 in pakket B. Uren die je in een maand niet gebruikt schuiven één maand door. Extra uren daarboven reken ik aan € 75, altijd pas na jouw akkoord.</p>
+</section>
+
+<section>
+  <h2>4. Projecten</h2>
+  <p>Nieuw bouwen is geen onderhoud. Die twee door elkaar rekenen is precies waarom het nu onduidelijk is, dus houd ik ze gescheiden.</p>
+
+  <div class="box">
+    <h4>Lees dit eerst</h4>
+    <p><strong>Projecten staan volledig los van het maandbedrag.</strong> Ze komen er niet uit en ze gaan er niet af. De uren die je in een pakket koopt gaan naar het draaiend houden en verbeteren van wat er al staat, niet naar nieuwbouw.</p>
+    <p><strong>Het zijn eenmalige betalingen, geen abonnement.</strong> Je betaalt ze één keer, het resultaat is daarna van jou.</p>
+    <p><strong>De helft vooraf, de helft bij oplevering.</strong> Ik start met bouwen zodra de eerste helft binnen is. Zo werken bouwprojecten: de opdrachtgever legt het startbedrag neer, de bouwer draagt de rest van het werk voor.</p>
+  </div>
+
+  <h3>Nieuwe homepage en ketelfunnel</h3>
+  <div class="tw">
+    <table>
+      <thead><tr><th>Onderdeel</th><th class="n">Uren</th><th class="n">Prijs</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="svc">Nieuwe homepage NMT</span>
+          <span class="det">Opbouw, teksten, beeld en techniek, afgestemd op de bestaande site en de offerteflow.</span></td>
+          <td class="n">33</td><td class="n">€ 1.980</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Ketelfunnel</span>
+          <span class="det">Dezelfde opzet als de aircofunnel, maar voor ketels: eigen landingspagina's, prijsberekening, online betaling, agendaboeking voor de plaatsing, geautomatiseerde opvolgmails en koppeling met Teamleader.</span></td>
+          <td class="n">67</td><td class="n">€ 4.020</td>
+        </tr>
+        <tr class="sub"><td>Samen, aan € 60 per uur</td><td class="n">100</td><td class="n">€ 6.000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Voor dit project reken ik € 60 per uur in plaats van € 75, omdat je honderd uur in één keer vastlegt. Ter vergelijking: een klein Vlaams webbureau rekent € 75 tot € 120 per uur, wat voor hetzelfde werk neerkomt op € 7.500 tot € 12.000. Bij een groter bureau aan € 120 tot € 200 per uur loopt het op tot € 20.000. Op dagtarieven gerekend zijn dat twaalf à dertien werkdagen, en Belgische bureaus zitten op € 600 tot € 1.200 per dag.</p>
+
+  <div class="box">
+    <h4>Waarom dit bij mij minder kost dan bij een bureau</h4>
+    <p><strong>Er is geen leerfase.</strong> Een bureau begint bij nul. Die moeten je producten leren kennen, je prijzen, je marges, je seizoen, hoe Teamleader bij jou staat ingesteld, hoe de offerteflow loopt en waarom bepaalde dingen zijn zoals ze zijn. Dat zijn de eerste weken van elk project, en die worden gefactureerd. Bij mij vallen ze weg.</p>
+    <p><strong>De helft staat er al.</strong> De aircofunnel draait. De online betaling, de agendaboeking en de koppeling met Teamleader hergebruik ik voor de ketel. Een bureau bouwt dat opnieuw en rekent het opnieuw aan.</p>
+    <p><strong>Eerder betaalde je € 5.000 voor marketing, websitebeheer, automatiseringen en e-mailmarketing.</strong> Wat hier op tafel ligt is een stuk meer werk: een volledige nieuwe homepage, plus een ketelfunnel met eigen landingspagina's, prijsberekening, online betaling, agendaboeking voor de plaatsing, geautomatiseerde opvolgmails en een koppeling met Teamleader. Honderd uur, voor € 6.000. Na maanden samenwerken weet ik precies wat je nodig hebt, en dat scheelt uren.</p>
+  </div>
+
+  <h3>Sanitairwebshop bouwen</h3>
+  <p>De prijs hangt af van hoe groot de winkel wordt. Drie vragen bepalen dat, en ik kan ze niet voor jou beantwoorden:</p>
+  <ul>
+    <li><strong>Hoeveel producten?</strong> Vijftig artikelen is iets anders dan vijfhonderd met maten, kleuren en merken.</li>
+    <li><strong>Wie levert de productgegevens?</strong> Teksten, foto's, afmetingen en prijzen. Als ik die moet maken of opkuisen, is dat apart werk.</li>
+    <li><strong>Moet de winkel met iets anders praten?</strong> De boekhouding in Octopus, een voorraadsysteem, of Bpost en Sendcloud voor verzending. Elke koppeling is maatwerk.</li>
+  </ul>
+  <p>Onze samenwerking loopt goed en ik werk graag met je. Daarom zit ik voor de webshop bewust onder wat een bureau in Vlaanderen aanrekent.</p>
+
+  <div class="tw">
+    <table style="min-width:680px">
+      <thead><tr><th>Omvang</th><th class="n">Uren</th><th class="n">Marktprijs in Vlaanderen</th><th class="n mine">Mijn prijs</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><span class="svc">Beperkte catalogus, geen koppelingen</span><span class="det">Tot ongeveer vijftig producten, standaardthema aangepast, betalingen en verzending werkend.</span></td>
+          <td class="n">50</td><td class="n">vanaf € 4.000</td><td class="n mine">€ 3.000</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Volledige catalogus</span><span class="det">Honderden producten met varianten en maten, eigen ontwerp, Bancontact, en de basis voor vindbaarheid in Google.</span></td>
+          <td class="n">108</td><td class="n">€ 4.000 tot € 10.000</td><td class="n mine">€ 6.500</td>
+        </tr>
+        <tr>
+          <td><span class="svc">Volledige catalogus met koppelingen</span><span class="det">Idem, plus een verbinding met de boekhouding, de voorraad of de verzending.</span></td>
+          <td class="n">133</td><td class="n">€ 10.000 tot € 20.000</td><td class="n mine">€ 8.000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="note">De marktcijfers komen uit Vlaamse webbureaus: een professionele webshop begint rond € 4.000, de meeste Vlaamse KMO's betalen € 4.000 tot € 10.000, en zodra er koppelingen met boekhouding of voorraad bij komen loopt dat op naar € 10.000 tot € 20.000. Mijn prijzen zijn gerekend aan € 60 per uur, hetzelfde tarief als het homepage- en ketelfunnelproject.</p>
+
+  <p class="note">Onderschat de omvang niet. Bij de volledige catalogus gaat het over honderd tot honderddertig uur: productgegevens, varianten, maten, filters, verzendregels voor zware goederen, betalingen en de opbouw van de winkel zelf. Naast het lopende werk is dat meerdere maanden doorlooptijd.</p>
+
+  <div class="box">
+    <h4>Samengevat, voor allebei de projecten</h4>
+    <p>Eenmalige betaling, los van het maandbedrag. Vijftig procent bij bestelling, vijftig procent bij oplevering. <strong>Het werk begint zodra de eerste helft betaald is.</strong> Dat is de standaard bij bouwprojecten, bij bureaus zowel als bij freelancers, en het beschermt ons allebei: jij betaalt niet alles vooruit, ik bouw niet weken door zonder dat er iets tegenover staat.</p>
+  </div>
+</section>
+
+<section>
+  <h2>5. Afspraken</h2>
+  <div class="terms">
+    <div class="term"><span class="lbl">Uurtarief</span><p>€ 75 per uur. In de pakketten zit een korting op dat tarief.</p></div>
+    <div class="term"><span class="lbl">Urenoverzicht</span><p>Elke maand krijg je een overzicht van waar de uren naartoe gingen. Je hoeft niet op mijn woord af te gaan.</p></div>
+    <div class="term"><span class="lbl">Toegang en eigendom</span><p>Alles wat ik bouw is van jou. Accounts, code en toegangen staan op naam van jouw bedrijven.</p></div>
+  </div>
+  <p class="note">De uren hierboven zijn mijn inschatting op basis van het werk van de afgelopen maanden. Vanaf de start houd ik ze bij, en als blijkt dat een dienst structureel minder of meer kost, passen we het aan.</p>
+</section>
+
+<section class="sign">
+  <h2>Hoe verder</h2>
+  <p>Laat me weten welk pakket je wil en of de webshop klein of groot wordt. Dan zet ik het op één blad met een startdatum en kunnen we deze maand starten.</p>
+  <p>Alles hierin is bespreekbaar. Bel me gerust als je iets wil doornemen.</p>
+  <p style="margin-top:26px"><strong>Salaheddine Azouzi</strong><br><span style="color:var(--muted)">S&amp;S Marketing &middot; +32 472 69 31 17</span></p>
+</section>
+
+</div>
+</body>
+</html>
