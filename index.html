@@ -553,7 +553,7 @@
   document.querySelectorAll('.strip .cel').forEach((c, i) => c.style.setProperty('--i', i));
   if (!rm && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('zichtbaar'); io.unobserve(e.target); } });
+      entries.forEach((e) => { if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('zichtbaar'); io.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     items.forEach((el) => io.observe(el));
   } else {

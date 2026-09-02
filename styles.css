@@ -441,6 +441,13 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
   .contact-acties .knop { width: 100%; }
 }
 
+/* afdrukken: alles zichtbaar, geen wachtende animaties */
+@media print {
+  .verschijn, .verschijn > article, .verschijn > .cel, .lek.verschijn > div, .werkwijze.verschijn > article,
+  .hero .eyebrow, .hero h1, .hero .lead, .hero-acties, .hero .strip .cel { opacity: 1; transform: none; animation: none; }
+  body::before, .route { display: none; }
+}
+
 /* ---------- beweging uit: alles blijft leesbaar, niets schuift ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
