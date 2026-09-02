@@ -15,7 +15,9 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Twee lettertypebestanden (Archivo variabel + Plex Mono 400), geladen zonder de eerste weergave te blokkeren. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=IBM+Plex+Mono&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400..900&family=IBM+Plex+Mono&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="styles.css">
 <script type="application/ld+json">
 {
@@ -51,6 +53,24 @@
 </nav>
 
 <header class="hero op-donker" id="top">
+  <!-- Decoratief: de route van advertentie naar order tekent zichzelf, van koel naar warm. Geen tekst, geen betekenis voor schermlezers. -->
+  <div class="route" aria-hidden="true">
+    <svg viewBox="0 0 760 520" preserveAspectRatio="xMaxYMin meet" focusable="false">
+      <defs>
+        <linearGradient id="thermo-grad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#3f9cc4"/>
+          <stop offset=".55" stop-color="#a8500b"/>
+          <stop offset="1" stop-color="#f0a63a"/>
+        </linearGradient>
+      </defs>
+      <path pathLength="1" d="M 10 500 C 120 500 150 430 220 418 C 300 405 330 360 380 300 C 430 240 470 200 540 178 C 610 156 650 120 700 80 C 720 64 735 52 748 42"/>
+      <circle class="koel" cx="10" cy="500" r="4"/>
+      <circle cx="220" cy="418" r="4"/>
+      <circle cx="380" cy="300" r="4"/>
+      <circle cx="540" cy="178" r="4"/>
+      <circle class="eind" cx="748" cy="42" r="5"/>
+    </svg>
+  </div>
   <div class="wrap">
     <p class="eyebrow">Commerciele systemen voor bedrijven in Belgi&euml; en Nederland</p>
     <h1>Van advertentie tot <span class="accent">getekende order</span>, gebouwd en gemeten.</h1>
@@ -522,21 +542,115 @@
 </footer>
 
 <script>
-  // Eén orkestratie bij binnenkomst: secties verschijnen zodra ze in beeld komen.
+(() => {
+  // Vier kleine taken, allemaal via custom properties; de beweging zelf staat in de CSS.
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const doc = document.documentElement;
+
+  // 1. Secties verschijnen zodra ze in beeld komen; kinderen van een raster kort na elkaar.
   const items = document.querySelectorAll('.verschijn');
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+  items.forEach((el) => [...el.children].forEach((c, i) => c.style.setProperty('--i', i)));
+  document.querySelectorAll('.strip .cel').forEach((c, i) => c.style.setProperty('--i', i));
+  if (!rm && 'IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('zichtbaar'), i * 70);
-          io.unobserve(e.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('zichtbaar'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     items.forEach((el) => io.observe(el));
   } else {
     items.forEach((el) => el.classList.add('zichtbaar'));
   }
+
+  // 2. Scrollpositie: de voortgangslijn in de balk en de temperatuur van de grond (koel boven, warm onder).
+  const slogan = document.querySelector('.slogan-tekst');
+  let bezig = false;
+  const opScroll = () => {
+    if (bezig) return; bezig = true;
+    requestAnimationFrame(() => {
+      bezig = false;
+      const max = doc.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      doc.style.setProperty('--scroll', p.toFixed(4));
+      doc.style.setProperty('--t', p.toFixed(3));
+      if (slogan && !rm) {
+        const r = slogan.getBoundingClientRect();
+        const q = 1 - Math.min(1, Math.max(0, (r.top + r.height / 2 - window.innerHeight * 0.55) / (window.innerHeight * 0.5)));
+        slogan.style.setProperty('--p', q.toFixed(3));
+      }
+    });
+  };
+  window.addEventListener('scroll', opScroll, { passive: true });
+  window.addEventListener('resize', opScroll, { passive: true });
+  opScroll();
+  if (rm) return;
+
+  // 3. De kop komt woord voor woord op; de tekst zelf blijft onaangeraakt.
+  const h1 = document.querySelector('.hero h1');
+  if (h1) {
+    let i = 0;
+    const wikkel = (node) => {
+      [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach((deel) => {
+            if (!deel) return;
+            if (/^\s+$/.test(deel)) { frag.appendChild(document.createTextNode(deel)); return; }
+            const s = document.createElement('span'); s.className = 'w'; s.style.setProperty('--i', i++); s.textContent = deel;
+            frag.appendChild(s);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) { wikkel(n); }
+      });
+    };
+    wikkel(h1); h1.classList.add('gesplitst');
+  }
+
+  // 4. De vier cijfers in de meetstrip tellen op naar hun echte waarde en eindigen exact op de originele tekst.
+  const fmt = (n, sep) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+  const tel = (el) => {
+    const orig = el.textContent;
+    const m = orig.match(/^(\D*)([\d.]+)(\D*)$/); if (!m) return;
+    const doel = parseInt(m[2].replace(/\./g, ''), 10); const sep = m[2].includes('.') ? '.' : '';
+    const t0 = performance.now(), duur = 1500;
+    const stap = (nu) => {
+      const k = Math.min(1, (nu - t0) / duur); const e = 1 - Math.pow(1 - k, 4);
+      el.textContent = k < 1 ? m[1] + fmt(Math.round(doel * e), sep) + m[3] : orig;
+      if (k < 1) requestAnimationFrame(stap);
+    };
+    requestAnimationFrame(stap);
+  };
+  const strip = document.querySelector('.strip');
+  if (strip && 'IntersectionObserver' in window) {
+    const io2 = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      io2.disconnect();
+      setTimeout(() => strip.querySelectorAll('.waarde').forEach(tel), 500);
+    }, { threshold: 0.3 });
+    io2.observe(strip);
+  }
+
+  // 5. Alleen met een muis: een lichtvlek over het sectorenraster en een lichte kanteling van het schermbeeld.
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const grid = document.querySelector('.sectoren');
+    if (grid) {
+      const cellen = [...grid.children]; let vakken = [];
+      const meet = () => { vakken = cellen.map((c) => c.getBoundingClientRect()); };
+      grid.addEventListener('pointerenter', meet);
+      grid.addEventListener('pointermove', (e) => {
+        cellen.forEach((c, i) => { const r = vakken[i]; if (!r) return;
+          c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px'); });
+      }, { passive: true });
+    }
+    const img = document.querySelector('.case-beeld img');
+    if (img) {
+      img.addEventListener('pointermove', (e) => {
+        const r = img.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+        img.style.setProperty('--ry', (x * 6).toFixed(2) + 'deg'); img.style.setProperty('--rx', (-y * 6).toFixed(2) + 'deg');
+      }, { passive: true });
+      img.addEventListener('pointerleave', () => { img.style.setProperty('--ry', '0deg'); img.style.setProperty('--rx', '0deg'); });
+    }
+  }
+})();
 </script>
 </body>
 </html>
