@@ -329,6 +329,29 @@ section.op-donker::before { content: ""; position: absolute; inset: 0; pointer-e
 .samen p { max-width: 74ch; color: var(--muted); }
 .samen p:last-child { margin-bottom: 0; }
 
+/* ---------- from A to Z: eight steps on one line, cool at the start, warm at the end ---------- */
+.tz { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 48px clamp(20px, 3vw, 36px); position: relative; }
+.tz li { position: relative; padding-top: 30px; }
+.tz li::before { content: ""; position: absolute; left: 0; right: calc(-1 * clamp(20px, 3vw, 36px)); top: 0; height: 1px;
+  background: linear-gradient(90deg, var(--cool), var(--amber-deep) 70%, var(--amber)); opacity: .55; }
+.tz li:nth-child(4n)::before { right: 0; }
+.tz li::after { content: ""; position: absolute; left: 0; top: -4px; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--ground); border: 1.5px solid var(--amber); box-shadow: 0 0 0 4px var(--ground); }
+.tz li:has(.tz-agent)::after { border-color: var(--good); }
+.tz li:has(.tz-systeem)::after { border-color: var(--cool); }
+.tz-nr { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; color: var(--faint); display: block; margin-bottom: 12px; }
+.tz-soort { font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; display: inline-block;
+  padding: 3px 9px; border-radius: 999px; border: 1px solid currentColor; margin-bottom: 14px; }
+.tz-marketing { color: var(--amber); }
+.tz-agent { color: var(--good); }
+.tz-systeem { color: var(--cool); }
+.tz h3 { font-size: 18px; letter-spacing: -.018em; margin-bottom: 8px; }
+.tz p { color: var(--muted); font-size: 14.5px; margin: 0; line-height: 1.55; }
+.tz.verschijn > li { opacity: 0; transform: translateY(14px); transition: opacity .7s ease-out, transform .8s var(--uit);
+  transition-delay: calc(var(--i, 0) * 60ms); }
+.tz.verschijn.zichtbaar > li { opacity: 1; transform: none; }
+
 /* ---------- agents: what each one takes over sits on top, in mono ---------- */
 .neemt-over { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
   color: var(--amber); margin: 0 0 16px; line-height: 1.5; display: flex; gap: 10px; align-items: baseline; }
@@ -426,6 +449,13 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
   .contact-acties { min-width: 0; }
 }
 @media (max-width: 760px) {
+  .tz { grid-template-columns: 1fr; gap: 0; padding-left: 26px; }
+  .tz::before { content: ""; position: absolute; left: 4px; top: 6px; bottom: 6px; width: 1px;
+    background: linear-gradient(180deg, var(--cool), var(--amber-deep) 70%, var(--amber)); opacity: .6; }
+  .tz li { padding: 0 0 28px; }
+  .tz li:last-child { padding-bottom: 0; }
+  .tz li::before { display: none; }
+  .tz li::after { left: -26px; top: 2px; }
   .stappen li { grid-template-columns: 1fr; gap: 10px; padding: 26px 0; }
   .faq { grid-template-columns: 1fr; }
   .vergelijk thead { display: none; }
@@ -462,7 +492,7 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
 
 /* afdrukken: alles zichtbaar, geen wachtende animaties */
 @media print {
-  .verschijn, .verschijn > article, .verschijn > .cel, .lek.verschijn > div, .werkwijze.verschijn > article, .stappen.verschijn > li,
+  .verschijn, .verschijn > article, .verschijn > .cel, .lek.verschijn > div, .werkwijze.verschijn > article, .stappen.verschijn > li, .tz.verschijn > li,
   .hero .eyebrow, .hero h1, .hero .lead, .hero-acties, .hero .strip .cel { opacity: 1; transform: none; animation: none; }
   body::before, .route { display: none; }
 }
@@ -471,7 +501,7 @@ footer .mono { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08e
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition-duration: .01ms !important; }
-  .verschijn, .verschijn > article, .verschijn > .cel, .lek.verschijn > div, .werkwijze.verschijn > article, .stappen.verschijn > li { opacity: 1; transform: none; }
+  .verschijn, .verschijn > article, .verschijn > .cel, .lek.verschijn > div, .werkwijze.verschijn > article, .stappen.verschijn > li, .tz.verschijn > li { opacity: 1; transform: none; }
   .hero .eyebrow, .hero h1, .hero .lead, .hero-acties, .hero .strip .cel, .hero h1 .w { opacity: 1; transform: none; animation: none; }
   .route path { stroke-dashoffset: 0; animation: none; }
   .route circle { opacity: 1; animation: none; }
